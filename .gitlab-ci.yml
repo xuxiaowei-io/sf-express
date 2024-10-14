@@ -29,9 +29,9 @@ build:
     - gpg --import $GPG_FILE && echo '导入 GPG 秘钥成功（用于给 jar 包等文件签名）'
     - echo $SETTINGS_XML_PATH
     - yum -y install unzip
-    - unzip SF-CSIM-EXPRESS-SDK-V1.6-180808.zip && echo '解压 顺风 jar 包成功' || exit 1
-    - ls -lh SF-CSIM-EXPRESS-SDK-V1.6
-    - ls -lh SF-CSIM-EXPRESS-SDK-V1.6/SF-CSIM-EXPRESS-SDK-V1.6.jar && echo '查看 要上传到中央仓库的 顺风 jar 包 成功' || exit 1
+    - unzip SF-CSIM-EXPRESS-SDK-V2.1.4-20210404.zip && echo '解压 顺风 jar 包成功' || exit 1
+    - ls -lh SF-CSIM-EXPRESS-SDK-V2.1.4
+    - ls -lh SF-CSIM-EXPRESS-SDK-V2.1.4/sf-csim-express-sdk-V2.1.4.jar && echo '查看 要上传到中央仓库的 顺风 jar 包 成功' || exit 1
     - GROUP_ID=`mvn help:evaluate -Dexpression=project.groupId -q -DforceStdout -s $SETTINGS_XML_PATH`
     - ARTIFACT_ID=`mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout -s $SETTINGS_XML_PATH`
     - VERSION=`mvn help:evaluate -Dexpression=project.version -q -DforceStdout -s $SETTINGS_XML_PATH`
@@ -39,7 +39,7 @@ build:
     - ls -lh target
     - ls -lh target/$ARTIFACT_ID-$VERSION-javadoc.jar && echo '查看上传 顺风 jar 包 必要 javadoc 文件 成功' || exit 1
     - ls -lh target/$ARTIFACT_ID-$VERSION-sources.jar && echo '查看上传 顺风 jar 包 必要 sources 文件 成功' || exit 1
-    - cp SF-CSIM-EXPRESS-SDK-V1.6/SF-CSIM-EXPRESS-SDK-V1.6.jar target/$ARTIFACT_ID-$VERSION.jar && echo '复制 要上传到中央仓库的 顺风 jar 包 成功' || exit 1
+    - cp SF-CSIM-EXPRESS-SDK-V2.1.4/sf-csim-express-sdk-V2.1.4.jar target/$ARTIFACT_ID-$VERSION.jar && echo '复制 要上传到中央仓库的 顺风 jar 包 成功' || exit 1
     - ls -lh target
     - ls -lh target/$ARTIFACT_ID-$VERSION.jar && echo '查看上传 顺风 jar 包 文件 成功' || exit 1
     - sed -i "s#</servers>#<server><id>ossrh</id><username>$ossrh_user</username><password>$ossrh_pass</password></server>&#" $SETTINGS_XML_PATH && echo '配置中央仓库密码成功' || exit 1
