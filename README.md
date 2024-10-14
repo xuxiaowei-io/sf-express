@@ -19,6 +19,6 @@
 <dependency>
     <groupId>io.xuxiaowei.sf-express</groupId>
     <artifactId>SF-CSIM-EXPRESS-SDK</artifactId>
-    <version>V2.1.7</version>
+    <version>V2.1.7、V2.1.6、V2.1.5、V2.1.4、V1.6</version>
 </dependency>
 ```
